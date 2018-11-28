@@ -11,5 +11,5 @@ On va considérer quatre manières de représenter une image en couleur et donc 
 
 ## Membres du projet
 
-- NOM, prénom, numéro de groupe, du premier participant LOPEZ Jérémy INFO 1
-- NOM, prénom, numéro de groupe, du deuxième participant NG GUIM SENG Ryan INFO 1
+- LOPEZ Jérémy INFO 1
+- NG GUIM SENG Ryan INFO 1
