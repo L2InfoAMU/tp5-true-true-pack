@@ -20,6 +20,7 @@ public class BruteRasterImage implements Image{
                 pixels[index][index2]=color;
             }
         }
+
     }
 
     public BruteRasterImage(Color[][] colors) {
