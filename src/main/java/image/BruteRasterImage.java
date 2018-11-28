@@ -14,7 +14,7 @@ public class BruteRasterImage implements Image{
     public BruteRasterImage(Color color, int width, int height) {
         this.width=width;
         this.height=height;
-        this.pixels= new Color[this.width][this.height];
+        createRepresentation();
         for (int index=0; index<this.width; index++){
             for (int index2=0; index2 < this.height; index2 ++){
                 pixels[index][index2]=color;
@@ -41,16 +41,17 @@ public class BruteRasterImage implements Image{
     public Color getPixelColor(int x, int y){ return pixels[x][y];}
 
     private void setPixelsColor(Color[][] pixels){
-        this.pixels=pixels;
+        this.pixels=pixels.clone();
     }
 
 
     private void setPixelsColor(Color color){
-        for (int index=0; index<width; index++){
+        /*for (int index=0; index<width; index++){
             for (int index2=0; index2 < height; index2 ++){
                 pixels[index][index2]=color;
             }
-        }
+        }*/
+        new BruteRasterImage(color,width,height);
     }
 
     public int getWidth(){ return pixels.length; }
