@@ -17,10 +17,10 @@ public class BruteRasterImage extends RasterImage implements Image{
     }
 
     public BruteRasterImage(Color[][] colors) {
+        super(colors);
         requiresNonNull(colors);
         requiresNonZeroDimensions(colors);
         requiresRectangularMatrix(colors);
-        super(colors);
         }
 
 
