@@ -1,6 +1,8 @@
 package image;
 
 import javafx.scene.paint.Color;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Collections.fill;
@@ -18,28 +20,33 @@ public class PaletteRasterImage implements Image {
         this.width=width;
         this.height=height;
         createRepresentation();
-        fill(palette, color);
+        setPixelsColor(color);
 
     }
 
     public PaletteRasterImage(Color[][] colors) {
-        for (int index = 0; index < colors.length; index++) {
-            for (int index2 = 0; index2 < colors[0].length; index2++) {
-                palette.set(indexOfColors[index][index2],colors[index][index2]);
-            }
-        }
+        int width;
+        int height;
+        width=colors.length;
+        height=colors[0].length;
+        this.width=width;
+        this.height=height;
+        createRepresentation();
+        setPixelsColor(colors);
     }
-    //todo
+
     public void createRepresentation(){
         indexOfColors = new int[width][height];
-
+        palette=new ArrayList<Color>();
     }
 
     public void setPixelColor(Color color, int x, int y){
-        if (palette.contains(color)==true){
-            palette.set(indexOfColors[x][y],color);
+        int index;
+        if (!palette.contains(color)){
+            palette.add(color);
         }
-        palette.set(indexOfColors[x][y],color);
+        index=palette.indexOf(color);
+        indexOfColors[x][y]=index;
     }
 
     public Color getPixelColor(int x, int y){ return palette.get(indexOfColors[x][y]);}
@@ -47,18 +54,14 @@ public class PaletteRasterImage implements Image {
     private void setPixelsColor(Color[][] pixels){
         for (int index=0; index<width; index++){
             for (int index2=0; index2 < height; index2 ++){
-                palette.set(indexOfColors[index][index2],pixels[index][index2]);
+                setPixelColor(pixels[index][index2],index,index2);
             }
         }
     }
 
 
     public void setPixelsColor(Color color) {
-        for (int index = 0; index < width; index++) {
-            for (int index2 = 0; index2 < height; index2++) {
-                palette.set(indexOfColors[index][index2], color);
-            }
-        }
+        fill(palette, color);
     }
 
 
