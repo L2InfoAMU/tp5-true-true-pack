@@ -2,49 +2,48 @@ package image;
 import javafx.scene.paint.Color;
 
 public abstract class RasterImage implements Image {
-    private Color [][] pixels;
+    private Object [][] pixels;
     private int width;
     private int height;
 
     public RasterImage(Color color, int width, int height) {
-        this.width=width;
+        /*this.width=width;
         this.height=height;
         createRepresentation();
         for (int index=0; index<this.width; index++){
             for (int index2=0; index2 < this.height; index2 ++){
                 pixels[index][index2]=color;
             }
-        }
+        }*/
+        this.width=width;
+        this.height=height;
+        createRepresentation();
+        setPixelsColor(color);
 
     }
 
     public RasterImage(Color[][] colors) {
-        this.pixels = colors.clone();
+        int width;
+        int height;
+        width=colors.length;
+        height=colors[0].length;
+        this.width=width;
+        this.height=height;
     }
 
     public void createRepresentation(){
-        pixels= new Color[width][height];
+        pixels= new Object[width][height];
     }
 
     public void setPixelColor(Color color, int x, int y){
         pixels[x][y]=color;
     }
 
-    public Color getPixelColor(int x, int y){ return pixels[x][y];}
 
-    private void setPixelsColor(Color[][] pixels){
-        this.pixels=pixels.clone();
-    }
+    public abstract void setPixelsColor(Color[][] pixels);
 
 
     public abstract void setPixelsColor(Color color);
-        /*for (int index=0; index<width; index++){
-            for (int index2=0; index2 < height; index2 ++){
-                pixels[index][index2]=color;
-            }
-        }
-        new RasterImage(color,width,height);
-    }*/
 
     public int getWidth(){ return pixels.length; }
 

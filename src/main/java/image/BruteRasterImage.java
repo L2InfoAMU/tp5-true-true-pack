@@ -16,11 +16,13 @@ public class BruteRasterImage extends RasterImage implements Image{
 
     }
 
+
     public BruteRasterImage(Color[][] colors) {
         super(colors);
         requiresNonNull(colors);
         requiresNonZeroDimensions(colors);
         requiresRectangularMatrix(colors);
+        this.pixels = colors.clone();
         }
 
 
@@ -28,8 +30,11 @@ public class BruteRasterImage extends RasterImage implements Image{
         super.setPixelColor(color,x,y);
     }
 
+    public void setPixelsColor(Color[][] pixels){
+        this.pixels=pixels.clone();
+    }
 
-
+    public Color getPixelColor(int x, int y){ return pixels[x][y];}
 
     public void setPixelsColor(Color color){
         /*for (int index=0; index<width; index++){
