@@ -17,11 +17,9 @@ public class Rectangle implements Shape {
     }
 
     public boolean contains(Point point){
-        if(Math.abs(point.x)>Math.abs(width-x) && Math.abs(point.x)<x)
-            return false;
-        if (Math.abs(point.y)>Math.abs(height-y) && Math.abs(point.y)<y)
-            return false;
-        return true;
+        if(x<point.x && point.x<=x+width && y<point.y && point.y<=y+height)
+            return true;
+        return false;
     }
 
     public Color getColor(){return color;}
