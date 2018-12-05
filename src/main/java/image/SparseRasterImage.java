@@ -48,10 +48,10 @@ public class SparseRasterImage extends RasterImage implements Image{
     }
   }
 
-  /*Les classes —
-  public int getWidth(): retourne la largeur de l’image.
-  public int getHeight(): retourne la hauteur de l’image.
-  protected void setWidth(int width): fixe la largeur de l’image.
-  protected void setHeight(int height): fixe la hauteur de l’image.
+  /*Les classes
+  -public int getWidth(): retourne la largeur de l’image.
+  -public int getHeight(): retourne la hauteur de l’image.
+  -protected void setWidth(int width): fixe la largeur de l’image.
+  -protected void setHeight(int height): fixe la hauteur de l’image.
   sont définies dans RasterImage*/
 }
