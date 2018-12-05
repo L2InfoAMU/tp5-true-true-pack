@@ -11,5 +11,5 @@ On va considérer quatre manières de représenter une image en couleur et donc 
 
 ## Membres du projet
 
-- LOPEZ Jérémy INFO 1
-- NG GUIM SENG Ryan INFO 1
+- LOPEZ Jérémy INFO 1, true true pack
+- NG GUIM SENG Ryan INFO 1, true true pack
