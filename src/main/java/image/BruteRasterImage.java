@@ -8,8 +8,6 @@ import static util.Matrices.requiresRectangularMatrix;
 
 public class BruteRasterImage extends RasterImage implements Image{
     private Color [][] pixels;
-    private int width;
-    private int height;
 
     public BruteRasterImage(Color color, int width, int height) {
         super(color,width,height);
@@ -27,7 +25,7 @@ public class BruteRasterImage extends RasterImage implements Image{
 
 
     public void setPixelColor(Color color, int x, int y){
-        super.setPixelColor(color,x,y);
+        pixels[x][y]=color;
     }
 
     public void setPixelsColor(Color[][] pixels){
@@ -42,7 +40,10 @@ public class BruteRasterImage extends RasterImage implements Image{
                 pixels[index][index2]=color;
             }
         }*/
-        new BruteRasterImage(color,width,height);
+        new BruteRasterImage(color,getWidth(),getHeight());
+    }
+    public void createRepresentation(){
+        pixels= new Color[getWidth()][getHeight()];
     }
 
 }

@@ -2,7 +2,7 @@ package image;
 import javafx.scene.paint.Color;
 
 public abstract class RasterImage implements Image {
-    private Object [][] pixels;
+    //private E [][] pixels;
     private int width;
     private int height;
 
@@ -23,31 +23,24 @@ public abstract class RasterImage implements Image {
     }
 
     public RasterImage(Color[][] colors) {
-        int width;
-        int height;
-        width=colors.length;
-        height=colors[0].length;
-        this.width=width;
-        this.height=height;
+        this.width=colors.length;
+        this.height=colors[0].length;
+        createRepresentation();
     }
 
-    public void createRepresentation(){
-        pixels= new Object[width][height];
-    }
+    public abstract void createRepresentation();
 
-    public void setPixelColor(Color color, int x, int y){
-        pixels[x][y]=color;
-    }
+    //public abstract void setPixelColor(Color color, int x, int y);
 
 
-    public abstract void setPixelsColor(Color[][] pixels);
+    //public abstract void setPixelsColor(Color[][] pixels);
 
 
-    public abstract void setPixelsColor(Color color);
+   public abstract void setPixelsColor(Color color);
 
-    public int getWidth(){ return pixels.length; }
+    public int getWidth(){ return width; }
 
-    public int getHeight(){return pixels[0].length;}
+    public int getHeight(){return height;}
 
     protected void setWidth(int width){
         this.width=width;
